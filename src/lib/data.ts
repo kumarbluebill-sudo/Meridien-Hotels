@@ -3,7 +3,7 @@ import roomDeluxe from "@/assets/room-deluxe.jpg";
 import roomSuite from "@/assets/room-suite.jpg";
 
 export interface Room {
-  id: string;
+  id: "standard" | "deluxe" | "suite";
   name: string;
   tagline: string;
   size: string;
