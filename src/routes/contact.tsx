@@ -14,9 +14,7 @@ import { HOTEL, ROOMS } from "@/lib/data";
 import { submitContactMessage } from "@/lib/forms.functions";
 
 const searchSchema = z.object({
-  room: z
-    .enum([ROOMS[0].id, ROOMS[1].id, ROOMS[2].id] as [string, string, string])
-    .optional(),
+  room: z.enum(["standard", "deluxe", "suite"]).optional(),
 });
 
 export const Route = createFileRoute("/contact")({

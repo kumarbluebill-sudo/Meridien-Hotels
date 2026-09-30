@@ -23,9 +23,9 @@ function todayPlus(days: number) {
   return d.toISOString().slice(0, 10);
 }
 
-export function BookingForm({ defaultRoom }: { defaultRoom?: string }) {
+export function BookingForm({ defaultRoom }: { defaultRoom?: string | undefined }) {
   const submit = useServerFn(submitBookingRequest);
-  const [roomType, setRoomType] = useState(defaultRoom ?? ROOMS[0].id);
+  const [roomType, setRoomType] = useState(defaultRoom ?? ROOMS[0]!.id);
   const [checkIn, setCheckIn] = useState(todayPlus(7));
   const [checkOut, setCheckOut] = useState(todayPlus(9));
   const [guests, setGuests] = useState("2");
