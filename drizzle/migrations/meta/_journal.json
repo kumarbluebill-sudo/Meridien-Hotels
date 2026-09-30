@@ -1,5 +1,13 @@
 {
   "version": "7",
   "dialect": "postgresql",
-  "entries": []
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1790783076770,
+      "tag": "0000_create_booking_and_contact_tables",
+      "breakpoints": true
+    }
+  ]
 }
