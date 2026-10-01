@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, ArrowRight } from "lucide-react";
 
 import { ROOMS } from "@/lib/data";
+import { RoomAdvisor } from "@/components/room-advisor";
 
 export const Route = createFileRoute("/rooms")({
   head: () => ({
