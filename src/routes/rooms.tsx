@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, ArrowRight } from "lucide-react";
 
 import { ROOMS } from "@/lib/data";
+import { RoomAdvisor } from "@/components/room-advisor";
 
 export const Route = createFileRoute("/rooms")({
   head: () => ({
@@ -39,7 +40,11 @@ function RoomsPage() {
         curtains and breakfast options. Rates are per night, taxes included.
       </p>
 
-      <div className="mt-14 flex flex-col gap-16">
+      <div className="mt-12">
+        <RoomAdvisor />
+      </div>
+
+      <div className="mt-16 flex flex-col gap-16">
         {ROOMS.map((room, i) => (
           <article
             key={room.id}
