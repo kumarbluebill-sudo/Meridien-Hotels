@@ -14,6 +14,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Toaster } from "@/components/ui/sonner";
 import { HOTEL } from "@/lib/data";
+import { WhatsAppButton } from "@/components/whatsapp-button";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -261,6 +262,7 @@ function RootComponent() {
         </main>
         <Footer />
       </div>
+      <WhatsAppButton />
       <Toaster />
     </QueryClientProvider>
   );
