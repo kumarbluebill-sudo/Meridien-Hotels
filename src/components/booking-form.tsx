@@ -14,7 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ROOMS } from "@/lib/data";
+import { ROOMS, whatsappBookingLink } from "@/lib/data";
 import { submitBookingRequest } from "@/lib/forms.functions";
 
 function todayPlus(days: number) {
@@ -185,9 +185,27 @@ export function BookingForm({ defaultRoom }: { defaultRoom?: string | undefined 
           rows={3}
         />
       </div>
-      <Button type="submit" disabled={pending} className="rounded-sm">
-        {pending ? "Sending…" : "Request booking"}
-      </Button>
+      <div className="grid gap-3 sm:grid-cols-2">
+        <Button type="submit" disabled={pending} className="rounded-sm">
+          {pending ? "Sending…" : "Request booking"}
+        </Button>
+        <Button asChild variant="outline" className="rounded-sm">
+          <a
+            href={whatsappBookingLink({
+              roomName: ROOMS.find((r) => r.id === roomType)?.name ?? roomType,
+              checkIn,
+              checkOut,
+              guests: Number(guests),
+              name,
+              specialRequests,
+            })}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Book on WhatsApp
+          </a>
+        </Button>
+      </div>
       <p className="text-xs text-muted-foreground">
         This is a booking request, not a confirmed reservation. No payment is
         taken — our team confirms availability by email.
