@@ -78,3 +78,23 @@ export const HOTEL = {
   email: "stay@meridianhotel.com",
   whatsapp: "918903413988",
 };
+
+export function whatsappBookingLink(b: {
+  roomName: string;
+  checkIn: string;
+  checkOut: string;
+  guests: number;
+  name?: string;
+  specialRequests?: string;
+}) {
+  const lines = [
+    `Hi ${HOTEL.name}, I'd like to book a room.`,
+    `Room: ${b.roomName}`,
+    `Check-in: ${b.checkIn}`,
+    `Check-out: ${b.checkOut}`,
+    `Guests: ${b.guests}`,
+  ];
+  if (b.name?.trim()) lines.push(`Name: ${b.name.trim()}`);
+  if (b.specialRequests?.trim()) lines.push(`Requests: ${b.specialRequests.trim()}`);
+  return `https://wa.me/${HOTEL.whatsapp}?text=${encodeURIComponent(lines.join("\n"))}`;
+}
