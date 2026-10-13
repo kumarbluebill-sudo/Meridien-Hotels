@@ -76,4 +76,5 @@ export const HOTEL = {
   address: "48 Riverside Avenue, Central District",
   phone: "+1 (212) 555-0148",
   email: "stay@meridianhotel.com",
+  whatsapp: "918903413988",
 };

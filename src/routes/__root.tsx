@@ -6,6 +6,7 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
 import { Menu, X } from "lucide-react";
@@ -14,6 +15,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Toaster } from "@/components/ui/sonner";
 import { HOTEL } from "@/lib/data";
+import { WhatsAppButton } from "@/components/whatsapp-button";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -153,7 +155,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -261,6 +263,7 @@ function RootComponent() {
         </main>
         <Footer />
       </div>
+      <WhatsAppButton />
       <Toaster />
     </QueryClientProvider>
   );

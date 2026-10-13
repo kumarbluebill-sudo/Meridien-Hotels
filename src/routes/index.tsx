@@ -5,6 +5,7 @@ import heroExterior from "@/assets/hero-exterior.jpg";
 import lobby from "@/assets/lobby.jpg";
 import { ROOMS } from "@/lib/data";
 import { BookingForm } from "@/components/booking-form";
+import { Reviews } from "@/components/reviews";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -199,6 +200,8 @@ function HomePage() {
           </p>
         </div>
       </section>
+
+      <Reviews />
     </div>
   );
 }
